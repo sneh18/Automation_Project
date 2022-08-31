@@ -18,8 +18,8 @@ else
 fi
 
 # Ensuring apache2 package is installed
-is_apache_installed=$(dpkg -s apache2 | grep 'Status:' | awk {'print $4'})
-if [ $is_apache_installed = "installed" ];
+is_apache_installed=$(dpkg -s apache2 2>/dev/null | grep 'Status:' | awk {'print $4'})
+if [ "$is_apache_installed" = "installed" ];
 then
         echo "Apache2 is already installed"
 else
@@ -82,8 +82,8 @@ else
 fi
 
 # Ensuring awscli package is installed
-is_awscli_installed=$(dpkg -s awscli | grep 'Status:' | awk {'print $4'})
-if [ $is_awscli_installed = "installed" ];
+is_awscli_installed=$(dpkg -s awscli 2>/dev/null | grep 'Status:' | awk {'print $4'})
+if [ "$is_awscli_installed" = "installed" ];
 then
         echo "AWSCLI is already installed."
 else
